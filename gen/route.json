@@ -1,0 +1,9 @@
+{
+  "components": [
+    {
+      "name": "Icon",
+      "title": "Icon 图标",
+      "path": { "main": "Icon/", "example": "Icon/", "readme": "Icon/" }
+    }
+  ]
+}
