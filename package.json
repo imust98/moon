@@ -4,7 +4,6 @@
   "description": "",
   "main": "lib/moon.min.js",
   "typings": "./moon.d.ts",
-  "module": "src/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/imust98/moon.git"
