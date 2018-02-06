@@ -9,7 +9,7 @@
           <h3>组件</h3>
           <ul>
               <li v-for="(item,index) in navs" :key="item.path">
-                <router-link :to="item.path">{{item.meta.title}}</router-link>
+                <router-link :to="item.path" active-class="active">{{item.meta.title}}</router-link>
               </li>
           </ul>
         </div>
