@@ -5,11 +5,11 @@
   "main": "src/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/imust98/vde.git"
+    "url": "https://github.com/imust98/moon.git"
   },
-  "homepage": "https://github.com/imust98/vde#readme",
+  "homepage": "https://github.com/imust98/moon#readme",
   "bugs": {
-    "url": "https://github.com/imust98/vde/issues"
+    "url": "https://github.com/imust98/moon/issues"
   },
   "keywords": [
     "vde",
