@@ -9,6 +9,7 @@ if (typeof window !== 'undefined' && window.Vue) {
   install(window.Vue);
 }
 
-export {
+module.exports.default = module.exports = {
+  install,
   Icon
-};
+}
