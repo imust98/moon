@@ -3,7 +3,7 @@
  */
 const path = require('path');
 const webpack = require('webpack');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 function resolve(dir) {
   return path.join(__dirname, '..', dir);
@@ -20,9 +20,13 @@ module.exports = {
     umdNamedDefine: true
   },
   externals: {
-    vue:'vue'
+    vue: {
+      root: 'Vue',
+      commonjs: 'vue',
+      commonjs2: 'vue',
+      amd: 'vue'
+    }
   },
-
   // 加载器
   module: {
     // https://doc.webpack-china.org/guides/migrating/#module-loaders-module-rules
@@ -65,7 +69,7 @@ module.exports = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV':'"production"' 
+      'process.env.NODE_ENV': '"production"'
     })
   ]
 };
