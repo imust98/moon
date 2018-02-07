@@ -1,32 +1,102 @@
 <template>
+  <div :class="[prefixCls]" v-clickoutside="onClickoutside">
+    <div :class="[prefixCls + '-rel']" ref="reference" @click="handleClick"><slot></slot></div>
+    <Drop
+    v-show="currentVisible"
+    :placement="placement"
+    ref="drop">
+    <slot name="list"></slot></Drop>
+  </div>
 </template>
 <script>
-const prefixCls = '';
+const prefixCls = 'mo-dropdown';
+import Drop from './drop.vue';
+import clickoutside from '../../src/directives/clickoutside';
+import { findComponentUpward } from '../../src/utils/assist';
 export default {
   name: 'Dropdown',
+  directives: {
+    clickoutside
+  },
+  components: {
+    Drop
+  },
   props: {
-  },
-  data() {
-    return {};
-  },
-  computed: {
-    classes() {
-      return [
-        `${prefixCls}`
-      ];
+    trigger: {
+      default: 'click'
     },
-    styles() {
-      return [];
+    placement: {
+      validator(value) {
+        return [
+          'top',
+          'top-start',
+          'top-end',
+          'bottom',
+          'botton-start',
+          'bottom-end',
+          'left',
+          'left-start',
+          'right',
+          'right-start',
+          'right-end'
+        ].includes(value);
+      },
+      default: 'bottom'
+    },
+    visible: {
+      type: Boolean,
+      default: false
+    }
+  },
+  computed: {},
+  data() {
+    return {
+      prefixCls: prefixCls,
+      currentVisible: this.visible
+    };
+  },
+  watch: {
+    visible(value) {
+      this.currentVisible = value;
+    },
+    currentVisible(value) {
+      if (this.value) {
+        this.$refs.drop.update();
+      } else {
+        this.$refs.drop.destroy();
+      }
+      this.$emit('ob-visible-change', value);
+    },
+    hasParent() {
+      const $parent = findComponentUpward(this, 'Dropdown');
+      if ($parent) {
+        return $parent;
+      } else {
+        return false;
+      }
     }
   },
   methods: {
-    // todo
+    handleClick() {
+      this.currentVisible = !this.currentVisble;
+    },
+    onClickoutside() {
+      this.currentVisible = false;
+    }
   },
   mounted() {
-    // todo
+    const _this = this;
+    this.$on('on-click', key => {
+      _this.onClickoutside();
+    });
   }
 };
 </script>
 <style lang='scss'>
-
+.mo-dropdown {
+  display: inline-block;
+  &-rel{
+    position: relative;
+  }
+}
 </style>
