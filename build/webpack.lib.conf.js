@@ -34,14 +34,22 @@ module.exports = {
       {
         // https://vue-loader.vuejs.org/en/configurations/extract-css.html
         test: /\.vue$/,
-        loader: 'vue-loader',
-        options: {
-          loaders: {
-            css: 'vue-style-loader!css-loader',
-            sass: 'vue-style-loader!css-loader!sass-loader'
-          },
-          postLoaders: {
-            html: 'babel-loader'
+        use: {
+          loader: 'vue-loader',
+          options: {
+            loaders: {
+              scss: [
+                'vue-style-loader',
+                'css-loader',
+                'sass-loader',
+                {
+                  loader: 'sass-resources-loader',
+                  options: {
+                    resources: path.resolve(__dirname, '../src/styles/custom.scss')
+                  }
+                }
+              ]
+            }
           }
         }
       },

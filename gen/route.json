@@ -1,9 +1,1 @@
-{
-  "components": [
-    {
-      "name": "Icon",
-      "title": "Icon 图标",
-      "path": { "main": "Icon/", "example": "Icon/", "readme": "Icon/" }
-    }
-  ]
-}
+{"components":[{"name":"Icon","title":"Icon 图标","path":{"main":"Icon/","example":"Icon/","readme":"Icon/"}},{"name":"Dropdown","title":"Dropdown 下拉菜单","path":{"main":"Dropdown/","example":"Dropdown/","readme":"Dropdown/"}},{"name":"Button","title":"Button 按钮","path":{"main":"Button/","example":"Button/","readme":"Button/"}}]}
