@@ -1,6 +1,6 @@
 {
   "name": "moon",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "",
   "main": "lib/moon.min.js",
   "typings": "./moon.d.ts",
