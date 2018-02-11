@@ -2,7 +2,6 @@
   <i :class="classes" :style="styles"></i>
 </template>
 <script>
-import '../scss/_sprite.scss';
 const prefixCls = 'icon';
 export default {
   name: 'Icon',
@@ -14,7 +13,8 @@ export default {
     size:{
       type:String,
       default:'10'
-    }
+    },
+    color:String
   },
   data() {
     return {};
@@ -29,6 +29,9 @@ export default {
       const style = {}
       if(this.size) {
         style['fontSize'] = `${this.size}px`;
+      }
+      if(this.color){
+        style.color = this.color;
       }
       return style;
     }

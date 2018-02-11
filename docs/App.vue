@@ -8,7 +8,7 @@
         <div class="m-side">
           <h3>组件</h3>
           <ul>
-              <li v-for="(item,index) in navs" :key="item.path">
+              <li v-for="(item,index) in navs" :key="index">
                 <router-link :to="item.path" active-class="active">{{item.meta.title}}</router-link>
               </li>
           </ul>
@@ -22,8 +22,7 @@
 </template>
 <script>
 import nav from './nav.js';
-import '../src/styles/base.scss';
-import '../src/styles/common.scss'
+import '../src/styles/index.scss'
 export default {
   data() {
     return {
