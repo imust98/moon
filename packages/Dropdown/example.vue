@@ -1,6 +1,6 @@
 <template>
   <div>
-      <Dropdown @on-click="handleClick">
+      <Dropdown @on-click="handleClick" placement="bottom-end">
         <a>下拉菜单</a>
         <DropdownMenu slot="list">
             <DropdownItem>驴打滚</DropdownItem>

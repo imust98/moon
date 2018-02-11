@@ -7,13 +7,13 @@
     </div>
     <div v-if="sourcelist && sourcelist.length" class="table-body">
       <table>
-        <tr v-for="(item, index) in sourcelist">
+        <tr v-for="(item, index) in sourcelist" :key="index">
           <slot name="body" v-bind:item="item"   v-bind:$index="index"></slot>
         </tr>
       </table>
     </div>
     <div v-else class="table-empty">
-        <slot name="empty">{{emptyText}}</slot>
+      <slot name="empty">{{emptyText}}</slot>
     </div>
 </div>
 </template>

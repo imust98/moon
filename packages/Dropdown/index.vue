@@ -1,22 +1,28 @@
 <template>
   <div :class="[prefixCls]" v-clickoutside="onClickoutside">
     <div :class="[prefixCls + '-rel']" ref="reference" @click="handleClick"><slot></slot></div>
-    <Drop
-    v-show="currentVisible"
-    :placement="placement"
-    ref="drop">
-    <slot name="list"></slot></Drop>
+    <transition name="slide-up">
+      <Drop
+      v-show="currentVisible"
+      :placement="placement"
+      ref="drop"
+      :data-transfer="transfer"
+      v-transfer-dom>
+      <slot name="list"></slot></Drop>
+    </transition>
   </div>
 </template>
 <script>
 const prefixCls = 'mo-dropdown';
 import Drop from './drop.vue';
 import clickoutside from '../../src/directives/clickoutside';
+import TransferDom from '../../src/directives/transfer-dom';
 import { findComponentUpward } from '../../src/utils/assist';
 export default {
   name: 'Dropdown',
   directives: {
-    clickoutside
+    clickoutside,
+    TransferDom
   },
   components: {
     Drop
@@ -46,9 +52,19 @@ export default {
     visible: {
       type: Boolean,
       default: false
+    },
+    transfer: {
+      type: Boolean,
+      default: false
     }
   },
-  computed: {},
+  computed: {
+    dropdownCls() {
+      return {
+        [prefixCls + '-transfer']: this.transfer
+      };
+    }
+  },
   data() {
     return {
       prefixCls: prefixCls,
@@ -95,8 +111,19 @@ export default {
 <style lang='scss'>
 .mo-dropdown {
   display: inline-block;
-  &-rel{
+  &-rel {
     position: relative;
   }
+}
+.slide-up-enter-active {
+  transition: all .3s ease;
+}
+.slide-up-leave-active {
+  transition: all .2s cubic-bezier(1.0, 0.5, 0, 0.4);
+}
+.slide-up-enter, .slide-up-leave-to
+/* .slide-fade-leave-active for below version 2.1.8 */ {
+  transform: translateY(0px);
+  opacity: 0;
 }
 </style>
