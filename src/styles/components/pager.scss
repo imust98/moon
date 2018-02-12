@@ -1,0 +1,47 @@
+.mo-pager {
+  .pager {
+    display: inline-block;
+  }
+  .pager-item {
+    display: inline-block;
+    vertical-align: middle;
+    min-width: 32px;
+    height: 32px;
+    line-height: 30px;
+    margin-right: 4px;
+    text-align: center;
+    list-style: none;
+    background-color: $text-white-color;
+    user-select: none;
+    cursor: pointer;
+    font-family: Arial;
+    border: 1px solid $border-base-color;
+    border-radius: 4px;
+    transition: border 0.2s ease-in-out, color 0.2s ease-in-out;
+    &:hover {
+      border-color: $primary-color;
+      color: $primary-color;
+    }
+    &-active {
+      background-color: $primary-color;
+      color: $text-white-color;
+      &:hover {
+        color: $text-white-color;
+      }
+    }
+    &-disabled {
+      cursor: not-allowed;
+      color: $input-disabled-text;
+      &:hover {
+        color: $input-disabled-text;
+        border-color: $input-disabled-border;
+      }
+    }
+    &-more {
+      &:hover {
+        border-color: $border-base-color;
+        color: inherit;
+      }
+    }
+  }
+}

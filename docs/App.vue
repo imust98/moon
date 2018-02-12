@@ -22,7 +22,8 @@
 </template>
 <script>
 import nav from './nav.js';
-import '../src/styles/index.scss'
+import '../src/styles/app.scss';
+import '../src/styles/index.scss';
 export default {
   data() {
     return {

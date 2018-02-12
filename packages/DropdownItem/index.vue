@@ -41,27 +41,3 @@ export default {
   }
 };
 </script>
-<style lang='scss'>
-.dropdown-item {
-  margin: 0;
-  line-height: normal;
-  padding: 7px 16px;
-  clear: both;
-  color: #495060;
-  font-size: 12px !important;
-  white-space: nowrap;
-  list-style: none;
-  cursor: pointer;
-  transition: background 0.2s ease-in-out;
-  &:hover {
-    background: #f3f3f3;
-  }
-  &-disabled {
-    color: #bbbec4;
-    cursor: not-allowed;
-    &:hover {
-      background-color: #fff;
-    }
-  }
-}
-</style>

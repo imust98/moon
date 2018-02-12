@@ -108,22 +108,3 @@ export default {
   }
 };
 </script>
-<style lang='scss'>
-.mo-dropdown {
-  display: inline-block;
-  &-rel {
-    position: relative;
-  }
-}
-.slide-up-enter-active {
-  transition: all .3s ease;
-}
-.slide-up-leave-active {
-  transition: all .2s cubic-bezier(1.0, 0.5, 0, 0.4);
-}
-.slide-up-enter, .slide-up-leave-to
-/* .slide-fade-leave-active for below version 2.1.8 */ {
-  transform: translateY(0px);
-  opacity: 0;
-}
-</style>

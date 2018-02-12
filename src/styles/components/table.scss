@@ -1,0 +1,47 @@
+.mo-table {
+    position: relative;
+    box-sizing: border-box;
+    flex: 1;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    font-size: 14px;
+    color: $text-color;
+    background-color: $text-white-color;
+    table {
+      width: 100%;
+      table-layout: fixed;
+    }
+    thead {
+      color: $title-color;
+      font-weight: 500;
+    }
+  
+    th {
+      white-space: nowrap;
+      overflow: hidden;
+      user-select: none;
+      text-align: left;
+    }
+    th,
+    td {
+      position: relative;
+      padding: 12px 10px;
+      min-width: 0;
+      box-sizing: border-box;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      vertical-align: middle;
+      border-bottom: 1px solid $border-base-color;
+    }
+    tr {
+      &:hover {
+        background-color: $table-background-hover;
+      }
+    }
+    .table-empty {
+      padding: 15px 0;
+      text-align: center;
+    }
+  }

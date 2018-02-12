@@ -2,7 +2,6 @@
   <i :class="classes" :style="styles"></i>
 </template>
 <script>
-import './../../src/styles/iconfont/ionicons.scss';
 const prefixCls = 'icon';
 export default {
   name: 'Icon',
@@ -45,8 +44,3 @@ export default {
   }
 };
 </script>
-<style lang='scss'>
-.icon{
-  display: inline-block;
-}
-</style>

@@ -7,8 +7,3 @@ export default {
   name:'DropdownMenu'
 };
 </script>
-<style lang="scss">
-.dropdown-menu{
-  min-width: 100px;
-}
-</style>

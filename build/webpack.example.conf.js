@@ -6,11 +6,11 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 function resolve(dir) {
-  return path.join(__dirname, dir);
+  return path.join(__dirname, '..', dir);
 }
 
 module.exports = merge(baseWebpackConfig, {
-  entry: resolve('../examples/main.js'),
+  entry: resolve('examples/main.js'),
   devServer: {
     hot: true,
     open: true,
