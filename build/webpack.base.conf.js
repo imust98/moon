@@ -1,7 +1,7 @@
 const path = require('path');
 
 function resolve(dir) {
-  return path.join(__dirname,"", dir);
+  return path.join(__dirname, dir);
 }
 
 module.exports = {
@@ -23,11 +23,11 @@ module.exports = {
         {
           test: /\.js$/,
 					use: 'babel-loader',
-					include: [resolve('docs'), resolve('examples')]
+					include: [resolve('../docs'), resolve('../examples')]
         },
         {
           test: /\.vue$/,
-          exclude:resolve('packages/cptTemp'),
+          exclude:path.resolve(__dirname, '../packages/cptTemp'),
           use: {
             loader: 'vue-loader',
             options: {
@@ -39,7 +39,7 @@ module.exports = {
                   {
                     loader: 'sass-resources-loader',
                     options: {
-                      resources: resolve('src/styles/custom.scss')
+                      resources: path.resolve(__dirname, '../src/styles/custom.scss')
                     }
                   }
                 ]
@@ -49,7 +49,7 @@ module.exports = {
         },
         {
           test: /\.scss$/,
-          loader: 'style-loader!css-loader!sass-loader'
+          loader: 'style-loader!css-loader!resolve-url-loader!sass-loader?sourceMap'
         },
         {
           test: /\.css$/,
