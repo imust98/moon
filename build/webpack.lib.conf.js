@@ -45,7 +45,10 @@ module.exports = {
                 {
                   loader: 'sass-resources-loader',
                   options: {
-                    resources: path.resolve(__dirname, '../src/styles/custom.scss')
+                    resources: path.resolve(
+                      __dirname,
+                      '../src/styles/custom.scss'
+                    )
                   }
                 }
               ]
@@ -68,7 +71,12 @@ module.exports = {
       },
       {
         test: /\.(gif|jpg|png|woff|svg|eot|ttf)\??.*$/,
-        loader: 'url-loader?limit=8192'
+        use: {
+          loader: 'url-loader?limit=8192',
+          options:{
+            publicPath:'assets/'
+          }
+        }
       }
     ]
   },
