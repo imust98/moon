@@ -76,7 +76,7 @@ export default {
       this.currentVisible = value;
     },
     currentVisible(value) {
-      if (this.value) {
+      if (value) {
         this.$refs.drop.update();
       } else {
         this.$refs.drop.destroy();
